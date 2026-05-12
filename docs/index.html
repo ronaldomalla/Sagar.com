@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sagar Malla | Advanced Portfolio Resume</title>
+  <!-- jQuery Removed to avoid runtime dependency issues -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: linear-gradient(135deg, #e0f2fe, #eef2ff, #f8fafc);
+      background-size: 400% 400%;
+      animation: gradientMove 15s ease infinite;
+      font-family: 'Poppins', sans-serif;
+      background: #f4f7fb;
+      color: #1f2937;
+      line-height: 1.6;
+      padding: 40px;
+    }
+
+    @keyframes gradientMove {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .resume-container {
+      position: relative;
+      max-width: 1100px;
+      margin: auto;
+      background: #ffffff;
+      border-radius: 20px;
+      overflow: hidden;
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.4);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+      display: grid;
+      grid-template-columns: 340px 1fr;
+    }
+
+    .sidebar {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, #0f172a, #1e293b);
+      color: white;
+      padding: 40px 30px;
+      box-shadow: inset 0 0 80px rgba(255,255,255,0.03);
+    }
+
+    .profile {
+      text-align: center;
+      backdrop-filter: blur(10px);
+      margin-bottom: 40px;
+    }
+
+    .profile-image-wrapper {
+      width: 150px;
+      height: 150px;
+      margin: auto;
+      border-radius: 50%;
+      padding: 5px;
+      background: linear-gradient(135deg, #38bdf8, #6366f1, #8b5cf6);
+      animation: rotateGlow 6s linear infinite;
+      box-shadow: 0 0 30px rgba(56, 189, 248, 0.5);
+    }
+
+    .profile-image {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #0f172a;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    .profile-image:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 35px rgba(99, 102, 241, 0.7);
+    }
+
+    @keyframes rotateGlow {
+      0% {
+        filter: hue-rotate(0deg);
+      }
+      100% {
+        filter: hue-rotate(360deg);
+      }
+    }
+
+    .profile::before {
+      content: '';
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      background: rgba(56,189,248,0.08);
+      border-radius: 50%;
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      filter: blur(20px);
+    }
+
+    .profile h1 {
+      margin-top: 20px;
+      font-size: 32px;
+      background: linear-gradient(90deg, #ffffff, #93c5fd);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .profile p {
+      color: #cbd5e1;
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    .section-title {
+      font-size: 16px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+      box-shadow: 0 8px 20px rgba(59,130,246,0.08);
+      color: #38bdf8;
+      border-left: 4px solid #38bdf8;
+      padding-left: 10px;
+    }
+
+    .contact-item {
+      margin-bottom: 14px;
+      font-size: 14px;
+      color: #e2e8f0;
+    }
+
+    .skill {
+      margin-bottom: 18px;
+    }
+
+    .skill span {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .skill-bar {
+      width: 100%;
+      height: 8px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .skill-fill {
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+      border-radius: 20px;
+      background: linear-gradient(90deg, #38bdf8, #6366f1);
+      animation: pulseBar 2.5s infinite;
+    }
+
+    @keyframes pulseBar {
+      0% {
+        opacity: 0.8;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0.8;
+      }
+    }
+
+    .main-content {
+      padding: 50px;
+      background: rgba(255,255,255,0.92);
+    }
+
+    .hero {
+      margin-bottom: 35px;
+    }
+
+    .hero {
+      animation: fadeInUp 1s ease;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero::after {
+      content: 'FULL STACK • ANALYTICS • DIGITAL';
+      display: inline-block;
+      margin-top: 18px;
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #2563eb, #7c3aed);
+      color: white;
+      font-size: 12px;
+      letter-spacing: 2px;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(37,99,235,0.2);
+    }
+
+    .hero h2 {
+      font-size: 48px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 10px;
+    }
+
+    .floating-shape {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(40px);
+      opacity: 0.25;
+      animation: floatMove 12s ease-in-out infinite;
+    }
+
+    .shape1 {
+      width: 250px;
+      height: 250px;
+      background: #38bdf8;
+      top: 5%;
+      right: 5%;
+    }
+
+    .shape2 {
+      width: 180px;
+      height: 180px;
+      background: #8b5cf6;
+      bottom: 8%;
+      left: 5%;
+      animation-delay: 3s;
+    }
+
+    @keyframes floatMove {
+      0% {
+        transform: translateY(0px) translateX(0px);
+      }
+      50% {
+        transform: translateY(-20px) translateX(20px);
+      }
+      100% {
+        transform: translateY(0px) translateX(0px);
+      }
+    }
+
+    .hero h3 {
+      color: #2563eb;
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      color: #4b5563;
+      font-size: 15px;
+    }
+
+    .content-section {
+      margin-bottom: 35px;
+    }
+
+    .content-section h4 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 18px;
+      color: #111827;
+      position: relative;
+      padding-bottom: 8px;
+    }
+
+    .content-section h4::after {
+      content: '';
+      position: absolute;
+      width: 70px;
+      height: 3px;
+      background: linear-gradient(90deg, #38bdf8, #6366f1);
+      left: 0;
+      bottom: 0;
+      border-radius: 10px;
+    }
+
+    .experience-item {
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 28px;
+      padding: 22px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(248,250,252,1), rgba(239,246,255,0.9));
+      border: 1px solid #e5e7eb;
+      transition: all 0.4s ease;
+      box-shadow: 0 8px 20px rgba(15,23,42,0.04);
+    }
+
+    .experience-item:hover {
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: 0 18px 35px rgba(37, 99, 235, 0.12);
+      border-color: #93c5fd;
+    }
+
+    .experience-item h5 {
+      font-size: 18px;
+      color: #111827;
+      margin-bottom: 5px;
+    }
+
+    .experience-item .company {
+      color: #2563eb;
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .experience-item .date {
+      font-size: 13px;
+      color: #6b7280;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .experience-item ul {
+      padding-left: 20px;
+    }
+
+    .experience-item ul li {
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: #374151;
+    }
+
+    .education-card {
+      transition: all 0.4s ease;
+      cursor: pointer;
+      padding: 18px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #eff6ff, #f8fafc);
+      border-left: 5px solid #2563eb;
+      margin-bottom: 18px;
+    }
+
+    .education-card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 15px 35px rgba(37,99,235,0.15);
+    }
+
+    .education-card h5 {
+      font-size: 17px;
+      margin-bottom: 5px;
+    }
+
+    .badge-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .badge {
+      background: linear-gradient(135deg, #dbeafe, #eef2ff);
+      padding: 14px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #1e3a8a;
+      text-align: center;
+      transition: all 0.4s ease;
+      cursor: pointer;
+    }
+
+    .badge:hover {
+      transform: translateY(-5px) scale(1.05);
+      background: linear-gradient(135deg, #bfdbfe, #c7d2fe);
+      box-shadow: 0 12px 24px rgba(59, 130, 246, 0.2);
+    }
+
+    .footer {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0f172a, #1e3a8a, #312e81);
+      border-radius: 22px;
+      padding: 35px 25px;
+      margin-top: 40px;
+      text-align: center;
+      color: #f8fafc;
+      font-size: 14px;
+      font-weight: 500;
+      box-shadow: 0 20px 40px rgba(37,99,235,0.25);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: rgba(56,189,248,0.15);
+      border-radius: 50%;
+      top: -120px;
+      left: -80px;
+      filter: blur(40px);
+    }
+
+    .footer::after {
+      content: '';
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      background: rgba(139,92,246,0.18);
+      border-radius: 50%;
+      bottom: -120px;
+      right: -80px;
+      filter: blur(40px);
+    }
+
+    .footer-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .footer-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #ffffff, #93c5fd);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .footer-subtitle {
+      color: #cbd5e1;
+      margin-bottom: 18px;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-tags {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .footer-tag {
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      color: #e0f2fe;
+      font-size: 12px;
+      transition: 0.4s ease;
+    }
+
+    .footer-tag:hover {
+      transform: translateY(-4px) scale(1.05);
+      background: rgba(255,255,255,0.15);
+      box-shadow: 0 10px 20px rgba(56,189,248,0.18);
+    }
+
+    @media(max-width: 900px) {
+      .resume-container {
+        grid-template-columns: 1fr;
+      }
+
+      body {
+        padding: 10px;
+      }
+
+      .main-content {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="floating-shape shape1"></div>
+  <div class="floating-shape shape2"></div>
+  <div class="resume-container">
+
+    <aside class="sidebar">
+      <div class="profile">
+        <div class="profile-image-wrapper">
+          <img src="img/profilepic.jpg" height="150" width="150" style="border-radius:50%;">
+        </div>
+        <h1>Sagar Malla</h1>
+        <p>Web Developer & Data Analytics Specialist</p>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="section-title">Contact</div>
+        <div class="contact-item">📍 Bardaghat-09, Lumbini, Nepal</div>
+        <div class="contact-item">📞 +977 9821559200</div>
+        <div class="contact-item">✉️ sagarmalla03@gmail.com</div>
+        <div class="contact-item">🌐 linkedin.com/in/sagar-malla-ba96b6184</div>
+      </div>
+
+      <br>
+
+      <div class="sidebar-section">
+        <div class="section-title">Technical Skills</div>
+
+        <div class="skill">
+          <span>HTML, CSS & Responsive Design</span>
+          <div class="skill-bar"><div class="skill-fill" style="width: 92%"></div></div>
+        </div>
+
+        <div class="skill">
+          <span>Python & Automation</span>
+          <div class="skill-bar"><div class="skill-fill" style="width: 85%"></div></div>
+        </div>
+
+        <div class="skill">
+          <span>Excel & Data Analysis</span>
+          <div class="skill-bar"><div class="skill-fill" style="width: 90%"></div></div>
+        </div>
+
+        <div class="skill">
+          <span>Power BI & Dashboard Analytics</span>
+          <div class="skill-bar"><div class="skill-fill" style="width: 82%"></div></div>
+        </div>
+
+        <div class="skill">
+          <span>IT Support</span>
+          <div class="skill-bar"><div class="skill-fill" style="width: 88%"></div></div>
+        </div>
+
+        <div class="skill">
+          <span>UI Design, Canva & Branding</span>
+          <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="sidebar-section">
+        <div class="section-title">Languages</div>
+        <div class="contact-item">🇳🇵 Nepali — Native</div>
+        <div class="contact-item">🇬🇧 English — Professional</div>
+      </div>
+
+      <br>
+
+      <div class="sidebar-section">
+        <div class="section-title">Strengths</div>
+        <div class="contact-item">✔ Analytical Thinking</div>
+        <div class="contact-item">✔ Problem Solving</div>
+        <div class="contact-item">✔ Leadership & Teamwork</div>
+        <div class="contact-item">✔ Communication Skills</div>
+        <div class="contact-item">✔ Fast Learning Ability</div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <section class="hero">
+        <h2>Sagar Malla</h2>
+        <h3><span id="typed-text"></span></h3>
+        <p>
+          Highly motivated and innovative technology professional with experience in web development, data analytics, IT support, and digital operations. Skilled in frontend technologies, Excel-based [...]
+        </p>
+      </section>
+
+      <section class="content-section">
+        <h4>Professional Experience</h4>
+
+        <div class="experience-item">
+          <h5>IT Help Desk Counselor & Web Instructor</h5>
+          <span class="company">CodeHub Education Technology, Nepal</span>
+          <span class="date">May 2022 – December 2025</span>
+          <ul>
+            <li>Provided full-time IT support and resolved technical issues for students and staff.</li>
+            <li>Conducted web development training in HTML, CSS, JavaScript, and Python.</li>
+            <li>Managed operational data using Excel, Google Sheets, and Power BI.</li>
+            <li>Created analytical reports and dashboards for business insights.</li>
+            <li>Handled troubleshooting, system maintenance, and network support.</li>
+          </ul>
+        </div>
+
+        <div class="experience-item">
+          <h5>Web Development Instructor</h5>
+          <span class="company">RGON Academy, Nepal</span>
+          <span class="date">April 2020 – May 2022</span>
+          <ul>
+            <li>Trained students in frontend web development fundamentals.</li>
+            <li>Taught HTML, CSS, JavaScript basics, and programming concepts.</li>
+            <li>Designed educational materials and practical learning projects.</li>
+            <li>Improved student engagement through interactive teaching methods.</li>
+          </ul>
+        </div>
+
+        <div class="experience-item">
+          <h5>Social Media Manager (Freelance)</h5>
+          <span class="company">Royal Bhutaha Club, Nepal</span>
+          <span class="date">2020 – 2024</span>
+          <ul>
+            <li>Managed social media branding and digital marketing campaigns.</li>
+            <li>Created promotional graphics and visual content using Canva Pro.</li>
+            <li>Improved audience engagement and online visibility through creative campaigns.</li>
+            <li>Maintained strong communication with online communities and followers.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <h4>Education</h4>
+
+        <div class="education-card">
+          <h5>Diploma in Computer Engineering</h5>
+          <p>Lumbini Engineering College, Nepal</p>
+          <small>2022 • Grade: 65.48%</small>
+        </div>
+
+        <div class="education-card">
+          <h5>Python Programming Certification</h5>
+          <p>Alpine Technology, Nepal</p>
+          <small>2019 • GPA: 3.25</small>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <h4>Featured Expertise</h4>
+
+        <div class="badge-grid">
+          <div class="badge">Responsive Website Development</div>
+          <div class="badge">Modern UI/UX Interface Design</div>
+          <div class="badge">Interactive Dashboard Analytics</div>
+          <div class="badge">Business Intelligence Reporting</div>
+          <div class="badge">jQuery Animation & Effects</div>
+          <div class="badge">Frontend Optimization Techniques</div>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <h4>Projects & Portfolio</h4>
+
+        <div class="experience-item">
+          <h5>Modern Analytics Dashboard</h5>
+          <ul>
+            <li>Developed modern Excel and Power BI dashboards for operational and business reporting.</li>
+            <li>Created interactive charts, KPI tracking systems, and performance analytics reports.</li>
+            <li>Focused on business insights, clean data visualization, and reporting automation.</li>
+          </ul>
+        </div>
+
+        <div class="experience-item">
+          <h5>Responsive Portfolio & Website Development</h5>
+          <ul>
+            <li>Designed modern responsive websites using HTML, CSS, JavaScript, and jQuery.</li>
+            <li>Implemented smooth animations, transitions, interactive UI elements, and modern layouts.</li>
+            <li>Optimized websites for mobile responsiveness, speed, and user experience.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <h4>Key Achievements</h4>
+
+        <div class="badge-grid">
+          <div class="badge">Improved IT Support Efficiency</div>
+          <div class="badge">Power BI Dashboard Reporting</div>
+          <div class="badge">Frontend Web Development Training</div>
+          <div class="badge">Data Management & Analytics</div>
+          <div class="badge">Creative Social Media Branding</div>
+          <div class="badge">Technical Troubleshooting Expertise</div>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <h4>Career Objective</h4>
+        <p>
+          To secure a challenging international-level opportunity in Web Development, Data Analytics, or IT Operations where I can utilize my technical expertise, creativity, and analytical mindset to[...]
+        </p>
+      </section>
+
+      <div class="footer">
+        <div class="footer-content">
+          <div class="footer-title">Sagar Malla Portfolio Resume</div>
+          <div class="footer-subtitle">
+            Passionate about Web Development, Data Analytics, UI/UX Design, and Modern Digital Innovation.
+          </div>
+
+          <div>
+            🚀 Crafted with premium modern UI/UX design, advanced animations, responsive layouts, and international portfolio standards.
+          </div>
+
+          <div class="footer-tags">
+            <div class="footer-tag">Web Developer</div>
+            <div class="footer-tag">Data Analytics</div>
+            <div class="footer-tag">Power BI</div>
+            <div class="footer-tag">Frontend UI</div>
+            <div class="footer-tag">Responsive Design</div>
+            <div class="footer-tag">IT Support</div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+      const experienceItems = document.querySelectorAll('.experience-item');
+      experienceItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+          item.style.transform = 'translateY(-10px) scale(1.02)';
+          item.style.transition = '0.4s ease';
+        });
+
+        item.addEventListener('mouseleave', () => {
+          item.style.transform = 'translateY(0px) scale(1)';
+        });
+      });
+
+      const badges = document.querySelectorAll('.badge');
+      badges.forEach(badge => {
+        badge.addEventListener('mouseenter', () => {
+          badge.style.opacity = '0.9';
+        });
+
+        badge.addEventListener('mouseleave', () => {
+          badge.style.opacity = '1';
+        });
+      });
+
+      if (typeof Typed !== 'undefined') {
+        new Typed('#typed-text', {
+          strings: [
+            'Web Developer',
+            'Data Analytics Specialist',
+            'Frontend UI Designer',
+            'Power BI Dashboard Creator',
+            'IT Support Professional'
+          ],
+          typeSpeed: 60,
+          backSpeed: 35,
+          backDelay: 1500,
+          loop: true
+        });
+      } else {
+        document.getElementById('typed-text').textContent = 'Web Developer & Data Analytics Specialist';
+      }
+    });
+  </script>
+</body>
+</html>
